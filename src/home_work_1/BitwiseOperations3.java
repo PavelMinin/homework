@@ -16,7 +16,7 @@ public class BitwiseOperations3 { // Побитовые операции Зад�
         System.out.println("Before converting float: " + a);
         System.out.println("After converting float to int: " + d + " -> BIN " + Integer.toBinaryString(d));
 
-        c = d & b; // BIN  & 0010 1010 & 1111 0001 -> 0010 0000 -> DEC 32
+        c = d & b; // BIN 0010 1010 & 1111 0001 -> 0010 0000 -> DEC 32
         System.out.println("Bitwise AND: " + d + " & " + b + " = " + c);
 
         System.out.println("Work with other bitwise operators is described in BitwiseOperations1 and BitwiseOperations2.");
