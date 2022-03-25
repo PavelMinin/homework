@@ -7,11 +7,11 @@ public class ByteToBinaryString { // Перевод в двоичную сист
         Scanner terminalIn = new Scanner(System.in);
         byte byteNum;
         String binNum;
-        String exit = "да"; // Условие для продолжения цикла. Инициализация для первого входа.
+        String exit; // Условие для продолжения цикла.
 
         // Цикл повторяется, пока мы хотим продолжать
         // Если введем что-то кроме "да", "дА", "Да" или "ДА" цикл прервется.
-        while (exit.equals("да") || exit.equals("Да") || exit.equals("дА") || exit.equals("ДА")){
+        do {
             System.out.println("Введите число от -128 до 127.");
             byteNum = terminalIn.nextByte();
 
@@ -21,7 +21,7 @@ public class ByteToBinaryString { // Перевод в двоичную сист
 
             System.out.println("Продолжить? (да / нет)");
             exit = terminalIn.next();
-        }
+        } while (exit.equals("да") || exit.equals("Да") || exit.equals("дА") || exit.equals("ДА"));
         return;
     }
 
