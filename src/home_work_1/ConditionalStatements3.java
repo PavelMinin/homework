@@ -2,7 +2,7 @@ package home_work_1;
 
 import java.util.Scanner;
 
-public class ConditionalStatements3 {
+public class ConditionalStatements3 { // Ветвление switch. Задача 5.3
     public static void main(String[] args) {
         Scanner terminalIn = new Scanner(System.in); // Создание объекта типа Scanner
 

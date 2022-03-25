@@ -1,6 +1,6 @@
 package home_work_1;
 
-public class OperatorsPriority {
+public class OperatorsPriority { // Изучение приоритета выполнения операторов. Задача 2
     public static void main(String[] args) {
         int intValue = 0; // переменная для записи значения целочисленного результата
         boolean logicValue; // переменная для записи логического результата истина или ложь

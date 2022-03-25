@@ -2,7 +2,7 @@ package home_work_1;
 
 import java.util.Scanner;
 
-public class ConditionalStatements2 {
+public class ConditionalStatements2 { // Ветвление if - else if. Задача 5.2
     public static void main(String[] args) {
         Scanner terminalIn = new Scanner(System.in); // Создание объекта типа Scanner
 

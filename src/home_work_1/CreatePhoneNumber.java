@@ -2,7 +2,7 @@ package home_work_1;
 
 import java.util.Scanner;
 
-public class CreatePhoneNumber {
+public class CreatePhoneNumber { // Задача 6*. Выделение цифр из числа и предоставление строки в форматированном виде
     public static void main(String[] args) {
         Scanner terminalIn = new Scanner(System.in);
         /**

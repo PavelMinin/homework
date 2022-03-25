@@ -2,7 +2,7 @@ package home_work_1;
 
 import java.util.Scanner;
 
-public class SmartAlarm {
+public class SmartAlarm { // Проверка возможности спать дальше. Задача 4*.
     public static void main(String[] args) {
         Scanner terminalIn = new Scanner(System.in);
 
@@ -15,9 +15,9 @@ public class SmartAlarm {
         answerWeekday = terminalIn.next();
 
         // проверка статуса дня
-        if (answerWeekday.equals("да") || answerWeekday.equals("Да") || answerWeekday.equals("ДА")) { // 3 варианта ответа по шаблону
+        if (answerWeekday.equals("да") || answerWeekday.equals("Да") || answerWeekday.equals("дА") || answerWeekday.equals("ДА")) { // 4 варианта ответа по шаблону
             weekday = true;
-        } else if (answerWeekday.equals("нет") || answerWeekday.equals("Нет") || answerWeekday.equals("НЕТ")){
+        } else if (answerWeekday.equals("нет") || answerWeekday.equals("Нет") || answerWeekday.equals("нЕТ") || answerWeekday.equals("НЕТ")){
             weekday = false; // если не совпало - выходной
         } else {
             System.out.println("Ответ не распознан. По умодчанию рабочий день.");
@@ -27,9 +27,9 @@ public class SmartAlarm {
         answerVocation = terminalIn.next();
 
         // проверка статуса нахождения в отпуске
-        if (answerVocation.equals("да") || answerVocation.equals("Да") || answerVocation.equals("ДА")) { // 3 варианта ответа по шаблону
+        if (answerVocation.equals("да") || answerVocation.equals("Да") || answerVocation.equals("дА") || answerVocation.equals("ДА")) { // 4 варианта ответа по шаблону
             vocation = true;
-        } else if (answerVocation.equals("нет") || answerVocation.equals("Нет") || answerVocation.equals("НЕТ")){
+        } else if (answerVocation.equals("нет") || answerVocation.equals("Нет") || answerVocation.equals("нЕТ") || answerVocation.equals("НЕТ")){
             vocation = false; // если не совпало - выходной
         } else {
             System.out.println("Ответ не распознан. По умодчанию вы не в отпуске.");
@@ -47,7 +47,6 @@ public class SmartAlarm {
         if (!weekday || vocation){
             return true; // выход из метода с возвратом значения true
         }
-
         return false; // выход из метода с возвратом значения true
     }
 }
