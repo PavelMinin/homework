@@ -2,9 +2,10 @@ BitwiseOperations1 - задание 1.2. Выполнение побитовых
 BitwiseOperations2 - задание 1.3. Выполнение побитовых операций с числами -42 и -15 (отрицательные вводные данные).
 BitwiseOperations3 - задание 1.5. Попытка выполнения побитовых операций с числом 42.5.
 OperatorsPriority - задание 2. Приоритетность операторов.
-ConditionalStatements1 - задание 5.1. Ветвление if
-ConditionalStatements2 - задание 5.2. Ветвление if - else if
-ConditionalStatements3 - задание 5.3. Ветвление switch
+ConditionalStatements1 - задание 5.1. Ветвление if.
+ConditionalStatements2 - задание 5.2. Ветвление if - else if.
+ConditionalStatements3 - задание 5.3. Ветвление switch.
 SmartAlarm - задание 4*. Вызов метода класса из main. Дополнительные проверки ввода данных.
-CreatePhoneNumber - задание 6*. Форматирование введенного номера под заданному шаблону (вместо int был использован тип данных long)
+CreatePhoneNumber - задание 6*. Форматирование введенного номера под заданному шаблону (вместо int был использован тип данных long).
 ByteToBinaryString - задание 7**. Математический вывод двоичного кода из десятичного числа, был использован метод abs из библиотеки Math.
+MathExperiments - задание 3. Эксперименты с библиотекой Math.
