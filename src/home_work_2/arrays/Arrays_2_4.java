@@ -28,7 +28,10 @@ public class Arrays_2_4 {
         showArray(getLessThenAverageElements(array));
 
         System.out.println("\nЗадание 2.4.4. Два наименьших элемента массива (по возрастанию либо равные):\n");
-        showArray(getTwoLeastElements(array));
+        System.out.println("Наименьший элемент массива: " + getLeastElement(array));
+        System.out.println("Второй по величине элемент массива либо равный наименьшему\n" +
+                " (если наименьшее значение встречается более 1 раза): " + getNextToLeastElement(array));
+        //showArray(getLeastElement(array));
 
         System.out.println("\nЗадание 2.4.5. Сжатый массив с удаленными элементами в заданном диапазоне:\n");
         System.out.println("Введите диапазон удаляемых значений 0 до 99 включительно:");
@@ -41,10 +44,10 @@ public class Arrays_2_4 {
      * @param array целочисленный массив
      * @return значение суммы четных положительных элементов int sum
      */
-    public static int getSumOfEvenElements (int[] array) {
+    public static int getSumOfEvenElements(int[] array) {
         int sum = 0;
-        for (int i : array) {
-            if ((i % 2 == 0) && (i > 0)) { // Условие про положительность в ТЗ
+        for(int i : array) {
+            if((i % 2 == 0) && (i > 0)) { // Условие про положительность в ТЗ
                 sum += i;
             }
         }
@@ -56,10 +59,10 @@ public class Arrays_2_4 {
      * @param array целочисленный массив
      * @return значение максимального элемента с четным индексом int maxValueOfEvenIndexElement
      */
-    public static int getMaxElementWithEvenIndex (int[] array) {
+    public static int getMaxElementWithEvenIndex(int[] array) {
         int maxValueOfEvenIndexElement = Integer.MIN_VALUE;
-        for (int i = 0; i < array.length; i += 2) {
-            if (array[i] > maxValueOfEvenIndexElement) {
+        for(int i = 0; i < array.length; i += 2) {
+            if(array[i] > maxValueOfEvenIndexElement) {
                 maxValueOfEvenIndexElement = array[i];
             }
         }
@@ -75,28 +78,28 @@ public class Arrays_2_4 {
      * @param array входной целочисленный массив
      * @return целочисленный массив элементов, меньших мреднего арифметического
      */
-    public static int[] getLessThenAverageElements (int[] array) {
+    public static int[] getLessThenAverageElements(int[] array) {
         int sum = 0;
         int average;
         int[] arrayLessThenAverageElements;
         int arrayLessThenAverageElementsLength = 0;
 
-        for (int i : array) {
+        for(int i : array) {
             sum += i;
         }
         average = sum / array.length;
 
         System.out.println("Среднее арифметическое элементов входного массива: " + average);
 
-        for (int i : array) {
-            if (i < average) arrayLessThenAverageElementsLength++;
+        for(int i : array) {
+            if(i < average) arrayLessThenAverageElementsLength++;
         }
 
         arrayLessThenAverageElements = new int[arrayLessThenAverageElementsLength];
 
         int count = 0, i = 0;
-        while (i < array.length) {
-            if (array[i] < average) {
+        while(i < array.length) {
+            if(array[i] < average) {
                 arrayLessThenAverageElements[count] = array[i];
                 count++;
             }
@@ -106,21 +109,49 @@ public class Arrays_2_4 {
     }
 
     /**
-     * Возвращает массив из двух наименьших элементов массива по возврастанию
-     * либо равных (если повторяется значение).
+     * Возвращает значение наименьшего элемента массива.
      * @param array целочисленный массив
-     * @return массив int[] twoLeastElements = {minElement,nextMinElement}
+     * @return значение наименьшего элемента массива int leastElement
      */
-    public static int[] getTwoLeastElements (int[] array) {
-        int [] twoLeastElements = {Integer.MAX_VALUE,Integer.MAX_VALUE};
-        for (int i : array) {
-            if (i < twoLeastElements[0]) {
-                twoLeastElements[0] = i;
-            } else if (i < twoLeastElements[1]) {
-                twoLeastElements[1] = i;
+    public static int getLeastElement(int[] array) {
+        int leastElement = Integer.MAX_VALUE;
+        for(int i : array) {
+            if(i < leastElement) {
+                leastElement = i;
             }
         }
-        return twoLeastElements;
+
+        return leastElement;
+    }
+
+    /**
+     * Возвращает значение второго по размеру элемент массива.
+     * Если в массиве элемент с наименьшим значением встречается
+     * более одного раза, то возвращается значение равное наименьшему.
+     * @param array целочисленный массив
+     * @return значение второго по размеру элемента массива int nextToLeastElement
+     */
+    public static int getNextToLeastElement(int[] array) {
+        int leastElement;
+        int nextToLeastElement = Integer.MAX_VALUE;
+        leastElement = getLeastElement(array);
+        int count=0;
+        for(int i : array) {
+            if(i == leastElement) {
+                count++;
+            }
+        }
+        if(count > 1) {
+            nextToLeastElement = leastElement;
+            return nextToLeastElement;
+        } else {
+            for(int i : array) {
+                if((i > leastElement) && (i < nextToLeastElement)) {
+                    nextToLeastElement = i;
+                }
+            }
+            return nextToLeastElement;
+        }
     }
 
     /**
@@ -137,10 +168,10 @@ public class Arrays_2_4 {
     public static int [] removeArrayElementsInRange(int[] array, int startRange, int endRange) {
         int count = 0;
         int newSize = array.length;
-        while (count < newSize) { // Перезаписываем ячейки со значением, попавшим в диапазон со сдвишом элементов массива влево
-            if (startRange <= array[count] && array[count] <= endRange) {
+        while(count < newSize) { // Перезаписываем ячейки со значением, попавшим в диапазон со сдвишом элементов массива влево
+            if(startRange <= array[count] && array[count] <= endRange) {
                 newSize--;
-                for (int i = count; i < newSize; i++) {
+                for(int i = count; i < newSize; i++) {
                     array[i] = array[i+1];
                     array[array.length - 1] = 0; // Заполняем последний элемент массива 0
                 }
@@ -156,11 +187,11 @@ public class Arrays_2_4 {
      * @param array массив целочисленных элементов.
      * @return int sum - сумма цифр каждого элемента массива.
      */
-    public static int getSumOfDigitsOfElements (int[] array) {
+    public static int getSumOfDigitsOfElements(int[] array) {
         int sum = 0, num;
-        for (int j : array) {
+        for(int j : array) {
             num = j;
-            while (num > 0) {
+            while(num > 0) {
                 sum += num % 10;
                 num /= 10;
             }
@@ -173,15 +204,15 @@ public class Arrays_2_4 {
      * Форматирование расчитано на элементы со значением от 0 до 99 включительно.
      * @param array массив целочисленных элементов.
      */
-    public static void showArray (int[] array) {
+    public static void showArray(int[] array) {
         StringBuilder str = new StringBuilder();
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] < 10) {
+        for(int i = 0; i < array.length; i++) {
+            if(array[i] < 10) {
                 str.append(" ").append(array[i]).append("    ");
             } else {
                 str.append(array[i]).append("    ");
             }
-            if ((i + 1) % 10 == 0) {
+            if((i + 1) % 10 == 0) {
                 str.append("\n");
             }
         }
@@ -198,23 +229,23 @@ public class Arrays_2_4 {
         int[]  rangeFrom_0_To_99 = {0,0};
         Scanner console = new Scanner(System.in);
 
-        for (int i = 0; i < rangeFrom_0_To_99.length; i++) {
-            if (i == 0) System.out.println("Введите начало диапазона от 0 до 99 включительно:");
+        for(int i = 0; i < rangeFrom_0_To_99.length; i++) {
+            if(i == 0) System.out.println("Введите начало диапазона от 0 до 99 включительно:");
             else System.out.println("Введите конец диапазона от 0 до 99 включительно:");
              do {
-                while (true) { // Проверка на то, что введено значение типа int
-                    if (!console.hasNextInt()) {
+                while(true) { // Проверка на то, что введено значение типа int
+                    if(!console.hasNextInt()) {
                         System.out.println("Введено неверное значение.");
                         console.next();
                     }
                     else break;
                 }
                 rangeFrom_0_To_99[i] = console.nextInt();
-                if (rangeFrom_0_To_99[i] < 0) System.out.println("Введено значение меньше 0.");
-                if (rangeFrom_0_To_99[i] > 99) System.out.println("Введено значение больше 99.");
-            } while ((rangeFrom_0_To_99[i] < 0) || (rangeFrom_0_To_99[i] > 99));
+                if(rangeFrom_0_To_99[i] < 0) System.out.println("Введено значение меньше 0.");
+                if(rangeFrom_0_To_99[i] > 99) System.out.println("Введено значение больше 99.");
+            } while((rangeFrom_0_To_99[i] < 0) || (rangeFrom_0_To_99[i] > 99));
         }
-        if (rangeFrom_0_To_99[0] > rangeFrom_0_To_99[1]) {
+        if(rangeFrom_0_To_99[0] > rangeFrom_0_To_99[1]) {
             System.out.println("Нижняя граница диапазона больше верхней границы диапазона." +
                     " Значения были заменены друг другом автоматически.");
             int buf = rangeFrom_0_To_99[0];

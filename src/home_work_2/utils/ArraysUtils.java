@@ -4,10 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ArraysUtils {
-    /* public static void main(String[] args) {
-
-        }
-    }*/
 
     /**
      * Создает массив через ввод данных в консоль.
