@@ -41,6 +41,7 @@ public class Factorial_1_1_2 {
         if (n == 1){
             return 1;
         }
-        return n * getMult (n-1);
+        //return n * getMult(n-1);
+        return Math.multiplyExact(n,getMult(n-1));
     }
 }
