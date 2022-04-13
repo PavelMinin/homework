@@ -1,8 +1,14 @@
-package home_work_3.calcs.simple;
+package home_work_3.calcs.additional;
 
 import home_work_3.calcs.api.ICalculator;
 
-public class CalculatorWithMathCopy implements ICalculator {
+public class CalculatorWithCounterAutoAgregationInterface {
+    ICalculator calculator;
+    private long counter = 0;
+
+    public CalculatorWithCounterAutoAgregationInterface(ICalculator calculator) {
+        this.calculator = calculator;
+    }
 
     /**
      * Returns the result of division a to b.
@@ -11,7 +17,8 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return the result of division type double
      */
     public double division(double a, double b) {
-        return a / b;
+        counter++;
+        return calculator.division(a, b);
     }
 
     /**
@@ -21,17 +28,19 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return the result of multiplication type double
      */
     public double multiplication(double a, double b) {
-        return a * b;
+        counter++;
+        return calculator.multiplication(a, b);
     }
 
     /**
      * Returns the result of subtraction a and b.
      * @param a value
      * @param b subtrahend value
-     * @return the result of substruction a and b type double
+     * @return the result of subtruction a and b type double
      */
     public double subtraction(double a, double b) {
-        return a - b;
+        counter++;
+        return calculator.subtraction(a, b);
     }
 
     /**
@@ -41,7 +50,8 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return the result of addition type double
      */
     public double addition(double a, double b) {
-        return a + b;
+        counter++;
+        return calculator.addition(a, b);
     }
 
     /**
@@ -51,7 +61,8 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return the result of raising a to the power of b.
      */
     public double pow(double a, int b) {
-        return Math.pow(a, b);
+        counter++;
+        return calculator.pow(a, b);
     }
 
     /**
@@ -60,7 +71,8 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return the absolut value of the a.
      */
     public double abs(double a) {
-        return Math.abs(a);
+        counter++;
+        return calculator.abs(a);
     }
 
     /**
@@ -69,6 +81,15 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return the result of taking the square root of the a.
      */
     public double sqrt(double a) {
-        return Math.sqrt(a);
+        counter++;
+        return calculator.sqrt(a);
+    }
+
+    /**
+     * Returns the number of times an object's methods have been used.
+     * @return counter.
+     */
+    public long getCounter() {
+        return counter;
     }
 }

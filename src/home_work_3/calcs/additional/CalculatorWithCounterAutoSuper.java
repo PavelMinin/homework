@@ -8,8 +8,8 @@ public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
     /**
      * Returns the result of raising a to the power of b.
      * Added automatic counter of using, that increments counter;
-     * @param a raised to a power
-     * @param b the power
+     * @param a the base
+     * @param b the exponent
      * @return the result of raising a to the power of b.
      */
     @Override

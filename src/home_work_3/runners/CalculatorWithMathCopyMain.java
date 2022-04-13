@@ -11,7 +11,7 @@ public class CalculatorWithMathCopyMain {
         result = calc.pow(result, 2);
         result = calc.addition(calc.multiplication(15d, 7d), result);
         result = calc.addition(result, 4.1);
-        System.out.println("Calculate using CalculatorWithMathCopy:");
+        System.out.println("Calculation using CalculatorWithMathCopy:");
         System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " + result);
     }
 }

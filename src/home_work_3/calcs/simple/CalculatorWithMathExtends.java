@@ -1,11 +1,13 @@
 package home_work_3.calcs.simple;
 
-public class CalculatorWithMathExtends extends CalculatorWithOperator {
+import home_work_3.calcs.api.ICalculator;
+
+public class CalculatorWithMathExtends extends CalculatorWithOperator implements ICalculator {
 
     /**
      * Returns the result of raising a to the power of b.
-     * @param a raised to a power
-     * @param b the power
+     * @param a the base
+     * @param b the exponent
      * @return the result of raising a to the power of b.
      */
     @Override

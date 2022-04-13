@@ -1,18 +1,13 @@
-package home_work_3.calcs.simple;
+package home_work_3.calcs.api;
 
-import home_work_3.calcs.api.ICalculator;
-
-public class CalculatorWithMathCopy implements ICalculator {
-
+public interface ICalculator {
     /**
      * Returns the result of division a to b.
      * @param a divident
      * @param b divider
      * @return the result of division type double
      */
-    public double division(double a, double b) {
-        return a / b;
-    }
+    double division(double a, double b);
 
     /**
      * Returns the result of multiplication a to b.
@@ -20,19 +15,15 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @param b the second multiplier
      * @return the result of multiplication type double
      */
-    public double multiplication(double a, double b) {
-        return a * b;
-    }
+    double multiplication(double a, double b);
 
     /**
      * Returns the result of subtraction a and b.
      * @param a value
      * @param b subtrahend value
-     * @return the result of substruction a and b type double
+     * @return the result of subtruction a and b type double
      */
-    public double subtraction(double a, double b) {
-        return a - b;
-    }
+    double subtraction(double a, double b);
 
     /**
      * Returns the result of addition a and b.
@@ -40,9 +31,7 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @param b the second term
      * @return the result of addition type double
      */
-    public double addition(double a, double b) {
-        return a + b;
-    }
+    double addition(double a, double b);
 
     /**
      * Returns the result of raising a to the power of b.
@@ -50,25 +39,19 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @param b the exponent
      * @return the result of raising a to the power of b.
      */
-    public double pow(double a, int b) {
-        return Math.pow(a, b);
-    }
+    double pow(double a, int b);
 
     /**
      * Return the absolut value of the passed argument.
      * @param a the passed argument.
      * @return the absolut value of the a.
      */
-    public double abs(double a) {
-        return Math.abs(a);
-    }
+    double abs(double a);
 
     /**
      * Returns the result of taking the square root of the passed argument.
      * @param a the passed argument.
      * @return the result of taking the square root of the a.
      */
-    public double sqrt(double a) {
-        return Math.sqrt(a);
-    }
+    double sqrt(double a);
 }

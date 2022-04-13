@@ -1,6 +1,8 @@
 package home_work_3.calcs.simple;
 
-public class CalculatorWithOperator {
+import home_work_3.calcs.api.ICalculator;
+
+public class CalculatorWithOperator implements ICalculator {
 
     /**
      * Returns the result of division a to b.
@@ -44,8 +46,8 @@ public class CalculatorWithOperator {
 
     /**
      * Returns the result of raising a to the power of b.
-     * @param a raised to a power
-     * @param b the power
+     * @param a the base
+     * @param b the exponent
      * @return the result of raising a to the power of b.
      */
     public double pow(double a, int b) {

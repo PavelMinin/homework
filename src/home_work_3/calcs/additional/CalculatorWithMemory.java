@@ -1,8 +1,32 @@
-package home_work_3.calcs.simple;
+package home_work_3.calcs.additional;
 
 import home_work_3.calcs.api.ICalculator;
 
-public class CalculatorWithMathCopy implements ICalculator {
+public class CalculatorWithMemory {
+    ICalculator calculator;
+    private double buffer;
+    private double memory;
+
+    public CalculatorWithMemory(ICalculator calculator){
+        this.calculator = calculator;
+    }
+
+    /**
+     * Returns value of the memory and records to the memory 0.
+     * @return value of the last operation.
+     */
+    public double getMemory() {
+        this.buffer = this.memory;
+        this.memory = 0;
+        return buffer;
+    }
+
+    /**
+     * Records value from the buffer to the memory.
+     */
+    public void memorize() {
+        this.memory = this.buffer;
+    }
 
     /**
      * Returns the result of division a to b.
@@ -11,7 +35,8 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return the result of division type double
      */
     public double division(double a, double b) {
-        return a / b;
+        this.buffer = calculator.division(a, b);
+        return this.buffer;
     }
 
     /**
@@ -21,17 +46,19 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return the result of multiplication type double
      */
     public double multiplication(double a, double b) {
-        return a * b;
+        this.buffer = calculator.multiplication(a, b);
+        return this.buffer;
     }
 
     /**
      * Returns the result of subtraction a and b.
      * @param a value
      * @param b subtrahend value
-     * @return the result of substruction a and b type double
+     * @return the result of subtruction a and b type double
      */
     public double subtraction(double a, double b) {
-        return a - b;
+        this.buffer = calculator.subtraction(a, b);
+        return this.buffer;
     }
 
     /**
@@ -41,7 +68,8 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return the result of addition type double
      */
     public double addition(double a, double b) {
-        return a + b;
+        this.buffer = calculator.addition(a, b);
+        return this.buffer;
     }
 
     /**
@@ -51,7 +79,8 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return the result of raising a to the power of b.
      */
     public double pow(double a, int b) {
-        return Math.pow(a, b);
+        this.buffer = calculator.pow(a, b);
+        return this.buffer;
     }
 
     /**
@@ -60,7 +89,8 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return the absolut value of the a.
      */
     public double abs(double a) {
-        return Math.abs(a);
+        this.buffer = calculator.abs(a);
+        return this.buffer;
     }
 
     /**
@@ -69,6 +99,7 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return the result of taking the square root of the a.
      */
     public double sqrt(double a) {
-        return Math.sqrt(a);
+        this.buffer = calculator.sqrt(a);
+        return this.buffer;
     }
 }
