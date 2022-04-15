@@ -137,4 +137,13 @@ class CalculatorDecoratorMain (pkg runners) - uses pattern decorator to add new 
 TASK 12**
 ========================================================================================================================
 
-in progress...
+class LexemeAnalyzer (pkg calcs.additional) - special class for lexical analyze of math expression (String).
+class CalculatorStringExpression (pkg calcs.additional) - new calculator, that uses class LexemeAnalyzer for dividing
+                                input string on a particular lexemes. After that it converts list of lexemes to reverse
+                                polish notation (RPN) and calculates it using CalculatorWithBigDecimal.
+class CalculatorStringExpressionMain (pkg calcs.runners) - runner for CalculatorStringExpression. Calculates an
+                                expression (4.1 + 15 * 7) ^ 2 + (28 / 5) ^ 2 * PI - E.
+
+            Don't kill me, please. Code isn't optimal. It's a Frankenstein! But I'm trying to do my best!
+
+========================================================================================================================
