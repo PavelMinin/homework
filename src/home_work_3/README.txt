@@ -137,6 +137,10 @@ class CalculatorDecoratorMain (pkg runners) - uses pattern decorator to add new 
 TASK 12**
 ========================================================================================================================
 
+in progress...
+
+There is huge logical mistake: || - like an OR operator, but not like an abs operator.
+
 class LexemeAnalyzer (pkg calcs.additional) - special class for lexical analyze of math expression (String).
 class CalculatorStringExpression (pkg calcs.additional) - new calculator, that uses class LexemeAnalyzer for dividing
                                 input string on a particular lexemes. After that it converts list of lexemes to reverse
