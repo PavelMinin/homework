@@ -78,11 +78,7 @@ public class CalculatorWithOperator implements ICalculator {
      * @return the absolut value of the a.
      */
     public double abs(double a) {
-        if (a < 0){
-            return a * -1;
-        } else {
-            return a;
-        }
+        return a < 0 ? -a : a;
     }
 
     /**

@@ -37,11 +37,7 @@ public class Factorial_1_1_2 {
         System.out.println(result); // Вывод ответа в консоль
     }
 
-    public static long getMult (int n){
-        if (n == 1){
-            return 1;
-        }
-        //return n * getMult(n-1);
-        return Math.multiplyExact(n,getMult(n-1));
+    public static long getMult(int n) {
+        return n == 1 ? 1 : Math.multiplyExact(n,getMult(n-1));
     }
 }
