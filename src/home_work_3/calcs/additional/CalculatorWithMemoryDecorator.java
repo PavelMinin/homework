@@ -7,6 +7,11 @@ public class CalculatorWithMemoryDecorator implements ICalculator {
     private double buffer;
     private double memory;
 
+    @Override
+    public String toString() {
+        return "CalculatorWithMemoryDecorator";
+    }
+
     /**
      * Constructor sets the calculator to the received object.
      * @param calculator object of type ICalculator.
@@ -46,8 +51,8 @@ public class CalculatorWithMemoryDecorator implements ICalculator {
      * @return the result of division type double
      */
     @Override
-    public double division(double a, double b) {
-        this.buffer = calculator.division(a, b);
+    public double divide(double a, double b) {
+        this.buffer = calculator.divide(a, b);
         return this.buffer;
     }
 
@@ -58,8 +63,8 @@ public class CalculatorWithMemoryDecorator implements ICalculator {
      * @return the result of multiplication type double
      */
     @Override
-    public double multiplication(double a, double b) {
-        this.buffer = calculator.multiplication(a, b);
+    public double multiply(double a, double b) {
+        this.buffer = calculator.multiply(a, b);
         return this.buffer;
     }
 
@@ -70,8 +75,8 @@ public class CalculatorWithMemoryDecorator implements ICalculator {
      * @return the result of subtruction a and b type double
      */
     @Override
-    public double subtraction(double a, double b) {
-        this.buffer = calculator.subtraction(a, b);
+    public double subtract(double a, double b) {
+        this.buffer = calculator.subtract(a, b);
         return this.buffer;
     }
 
@@ -82,8 +87,8 @@ public class CalculatorWithMemoryDecorator implements ICalculator {
      * @return the result of addition type double
      */
     @Override
-    public double addition(double a, double b) {
-        this.buffer = calculator.addition(a, b);
+    public double add(double a, double b) {
+        this.buffer = calculator.add(a, b);
         return this.buffer;
     }
 

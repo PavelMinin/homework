@@ -7,7 +7,7 @@ public interface ICalculator {
      * @param b divider
      * @return the result of division type double
      */
-    double division(double a, double b);
+    double divide(double a, double b);
 
     /**
      * Returns the result of multiplication a to b.
@@ -15,7 +15,7 @@ public interface ICalculator {
      * @param b the second multiplier
      * @return the result of multiplication type double
      */
-    double multiplication(double a, double b);
+    double multiply(double a, double b);
 
     /**
      * Returns the result of subtraction a and b.
@@ -23,7 +23,7 @@ public interface ICalculator {
      * @param b subtrahend value
      * @return the result of subtruction a and b type double
      */
-    double subtraction(double a, double b);
+    double subtract(double a, double b);
 
     /**
      * Returns the result of addition a and b.
@@ -31,7 +31,7 @@ public interface ICalculator {
      * @param b the second term
      * @return the result of addition type double
      */
-    double addition(double a, double b);
+    double add(double a, double b);
 
     /**
      * Returns the result of raising a to the power of b.

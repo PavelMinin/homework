@@ -20,40 +20,34 @@ public class CalculatorWithCounterAutoCompositeInterfaceMain {
         CalculatorWithCounterAutoAgregationInterface calculator4 =
                 new CalculatorWithCounterAutoAgregationInterface(new CalculatorWithBigDecimal());
 
-
-
         double result;
 
-        result = calculator1.division(28d, 5d);
-        result = calculator1.pow(result, 2);
-        result = calculator1.addition(calculator1.multiplication(15d, 7d), result);
-        result = calculator1.addition(result, 4.1);
-        System.out.println("Calculation using CalculatorWithCounterAutoAgregationInterface (CalculatorWithOperator):");
-        System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " + result);
-        System.out.println("Current value of the counter of the calculator using: " + calculator1.getCounter());
+        result = calculateResult(calculator1);
+        showResult(result, calculator1);
 
-        result = calculator2.division(28d, 5d);
-        result = calculator2.pow(result, 2);
-        result = calculator2.addition(calculator2.multiplication(15d, 7d), result);
-        result = calculator2.addition(result, 4.1);
-        System.out.println("\nCalculation using CalculatorWithCounterAutoAgregationInterface (CalculatorWithMathCopy):");
-        System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " + result);
-        System.out.println("Current value of the counter of the calculator using: " + calculator2.getCounter());
+        result = calculateResult(calculator2);
+        showResult(result, calculator2);
 
-        result = calculator3.division(28d, 5d);
-        result = calculator3.pow(result, 2);
-        result = calculator3.addition(calculator3.multiplication(15d, 7d), result);
-        result = calculator3.addition(result, 4.1);
-        System.out.println("\nCalculation using CalculatorWithCounterAutoAgregationInterface (CalculatorWithMathExtends):");
-        System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " + result);
-        System.out.println("Current value of the counter of the calculator using: " + calculator3.getCounter());
+        result = calculateResult(calculator3);
+        showResult(result, calculator3);
 
-        result = calculator4.division(28d, 5d);
-        result = calculator4.pow(result, 2);
-        result = calculator4.addition(calculator4.multiplication(15d, 7d), result);
-        result = calculator4.addition(result, 4.1);
-        System.out.println("\nBONUS: Calculation using CalculatorWithCounterAutoAgregationInterface (CalculatorWithBigDecimalExtends):");
+        result = calculateResult(calculator4);
+        System.out.println("\nBONUS:");
+        showResult(result, calculator4);
+    }
+
+    private static double calculateResult(CalculatorWithCounterAutoAgregationInterface calculator) {
+        double result;
+        result = calculator.division(28d, 5d);
+        result = calculator.pow(result, 2);
+        result = calculator.addition(calculator.multiplication(15d, 7d), result);
+        result = calculator.addition(result, 4.1);
+        return result;
+    }
+
+    private static void showResult(double result, CalculatorWithCounterAutoAgregationInterface calculator) {
+        System.out.println("\nCalculation using " + calculator.toString() + " (" + calculator.getCalculatorInfo() + "):");
         System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " + result);
-        System.out.println("Current value of the counter of the calculator using: " + calculator4.getCounter());
+        System.out.println("Current value of the counter of the calculator using: " + calculator.getCounter());
     }
 }

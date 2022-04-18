@@ -5,6 +5,11 @@ import home_work_3.calcs.simple.CalculatorWithMathExtends;
 public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
     private long count = 0;
 
+    @Override
+    public String toString() {
+        return "CalculatorWithCounterAutoSuper";
+    }
+
     /**
      * Returns the result of raising a to the power of b.
      * Added automatic counter of using, that increments counter;
@@ -50,9 +55,9 @@ public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
      * @return the result of division type double
      */
     @Override
-    public double division(double a, double b) {
+    public double divide(double a, double b) {
         incrementCountOperation();
-        return super.division(a, b);
+        return super.divide(a, b);
     }
 
     /**
@@ -63,9 +68,9 @@ public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
      * @return the result of multiplication type double
      */
     @Override
-    public double multiplication(double a, double b) {
+    public double multiply(double a, double b) {
         incrementCountOperation();
-        return super.multiplication(a, b);
+        return super.multiply(a, b);
     }
 
     /**
@@ -76,9 +81,9 @@ public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
      * @return the result of substruction a and b type double
      */
     @Override
-    public double subtraction(double a, double b) {
+    public double subtract(double a, double b) {
         incrementCountOperation();
-        return super.subtraction(a, b);
+        return super.subtract(a, b);
     }
 
     /**
@@ -89,15 +94,15 @@ public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
      * @return the result of addition type double
      */
     @Override
-    public double addition(double a, double b) {
+    public double add(double a, double b) {
         incrementCountOperation();
-        return super.addition(a, b);
+        return super.add(a, b);
     }
 
     /**
      * The counter of the object using classic. Increments counter, when call the method.
      */
-    public void incrementCountOperation() {
+    private void incrementCountOperation() {
          count ++;
     }
 

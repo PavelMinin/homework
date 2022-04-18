@@ -10,6 +10,15 @@ public class CalculatorWithCounterAutoAgregationInterface {
         this.calculator = calculator;
     }
 
+    public String getCalculatorInfo() {
+        return this.calculator.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "CalculatorWithCounterAutoAgregationInterface";
+    }
+
     /**
      * Returns the result of division a to b.
      * @param a divident
@@ -18,7 +27,7 @@ public class CalculatorWithCounterAutoAgregationInterface {
      */
     public double division(double a, double b) {
         counter++;
-        return calculator.division(a, b);
+        return calculator.divide(a, b);
     }
 
     /**
@@ -29,7 +38,7 @@ public class CalculatorWithCounterAutoAgregationInterface {
      */
     public double multiplication(double a, double b) {
         counter++;
-        return calculator.multiplication(a, b);
+        return calculator.multiply(a, b);
     }
 
     /**
@@ -40,7 +49,7 @@ public class CalculatorWithCounterAutoAgregationInterface {
      */
     public double subtraction(double a, double b) {
         counter++;
-        return calculator.subtraction(a, b);
+        return calculator.subtract(a, b);
     }
 
     /**
@@ -51,7 +60,7 @@ public class CalculatorWithCounterAutoAgregationInterface {
      */
     public double addition(double a, double b) {
         counter++;
-        return calculator.addition(a, b);
+        return calculator.add(a, b);
     }
 
     /**

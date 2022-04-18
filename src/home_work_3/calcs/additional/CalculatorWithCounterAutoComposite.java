@@ -6,6 +6,15 @@ public class CalculatorWithCounterAutoComposite {
     CalculatorWithMathExtends calculator = new CalculatorWithMathExtends();
     private long counter = 0;
 
+    @Override
+    public String toString() {
+        return "CalculatorWithCounterAutoComposite";
+    }
+
+    public String getCalculatorInfo() {
+        return this.calculator.toString();
+    }
+
     /**
      * Returns the result of division a to b, using object of type CalculatorWithMathExtends.
      * @param a divident
@@ -14,7 +23,7 @@ public class CalculatorWithCounterAutoComposite {
      */
     public double division(double a, double b) {
         this.counter++;
-        return calculator.division(a, b);
+        return calculator.divide(a, b);
     }
 
     /**
@@ -25,7 +34,7 @@ public class CalculatorWithCounterAutoComposite {
      */
     public double multiplication(double a, double b) {
         this.counter++;
-        return calculator.multiplication(a, b);
+        return calculator.multiply(a, b);
     }
 
     /**
@@ -36,7 +45,7 @@ public class CalculatorWithCounterAutoComposite {
      */
     public double subtraction(double a, double b) {
         this.counter++;
-        return calculator.subtraction(a, b);
+        return calculator.subtract(a, b);
     }
 
     /**
@@ -47,7 +56,7 @@ public class CalculatorWithCounterAutoComposite {
      */
     public double addition(double a, double b) {
         this.counter++;
-        return calculator.addition(a, b);
+        return calculator.add(a, b);
     }
 
     /**

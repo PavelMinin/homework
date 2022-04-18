@@ -10,6 +10,16 @@ public class CalculatorWithCounterAutoAgregation {
     CalculatorWithMathExtends calculatorWithMathExtends;
     private long counter;
 
+    public String getCalculatorInfo() {
+        if(calculatorWithOperator != null) {
+            return calculatorWithOperator.toString();
+        } else if (calculatorWithMathCopy != null) {
+            return calculatorWithMathCopy.toString();
+        } else {
+            return calculatorWithMathExtends.toString();
+        }
+    }
+
     public CalculatorWithCounterAutoAgregation(CalculatorWithOperator calculator) {
         this.calculatorWithOperator = calculator;
     }
@@ -23,6 +33,12 @@ public class CalculatorWithCounterAutoAgregation {
     }
 
 
+
+    @Override
+    public String toString() {
+        return "CalculatorWithCounterAutoAgregation";
+    }
+
     /**
      * Returns the result of division a to b, using the object, that was passed as an argument.
      * @param a divident
@@ -32,11 +48,11 @@ public class CalculatorWithCounterAutoAgregation {
     public double division(double a, double b) {
         this.counter++;
         if(calculatorWithOperator != null) {
-            return calculatorWithOperator.division(a, b);
+            return calculatorWithOperator.divide(a, b);
         } else if (calculatorWithMathCopy != null) {
-            return calculatorWithMathCopy.division(a, b);
+            return calculatorWithMathCopy.divide(a, b);
         } else {
-            return calculatorWithMathExtends.division(a, b);
+            return calculatorWithMathExtends.divide(a, b);
         }
     }
 
@@ -49,11 +65,11 @@ public class CalculatorWithCounterAutoAgregation {
     public double multiplication(double a, double b) {
         this.counter++;
         if(calculatorWithOperator != null) {
-            return calculatorWithOperator.multiplication(a, b);
+            return calculatorWithOperator.multiply(a, b);
         } else if (calculatorWithMathCopy != null) {
-            return calculatorWithMathCopy.multiplication(a, b);
+            return calculatorWithMathCopy.multiply(a, b);
         } else {
-            return calculatorWithMathExtends.multiplication(a, b);
+            return calculatorWithMathExtends.multiply(a, b);
         }
     }
 
@@ -66,11 +82,11 @@ public class CalculatorWithCounterAutoAgregation {
     public double subtraction(double a, double b) {
         this.counter++;
         if(calculatorWithOperator != null) {
-            return calculatorWithOperator.subtraction(a, b);
+            return calculatorWithOperator.subtract(a, b);
         } else if (calculatorWithMathCopy != null) {
-            return calculatorWithMathCopy.subtraction(a, b);
+            return calculatorWithMathCopy.subtract(a, b);
         } else {
-            return calculatorWithMathExtends.subtraction(a, b);
+            return calculatorWithMathExtends.subtract(a, b);
         }
     }
 
@@ -83,11 +99,11 @@ public class CalculatorWithCounterAutoAgregation {
     public double addition(double a, double b) {
         this.counter++;
         if(calculatorWithOperator != null) {
-            return calculatorWithOperator.addition(a, b);
+            return calculatorWithOperator.add(a, b);
         } else if (calculatorWithMathCopy != null) {
-            return calculatorWithMathCopy.addition(a, b);
+            return calculatorWithMathCopy.add(a, b);
         } else {
-            return calculatorWithMathExtends.addition(a, b);
+            return calculatorWithMathExtends.add(a, b);
         }
     }
 

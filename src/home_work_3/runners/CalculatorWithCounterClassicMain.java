@@ -8,15 +8,15 @@ public class CalculatorWithCounterClassicMain {
         double result;
         double temp;
 
-        result = calc.division(28d, 5d);
+        result = calc.divide(28d, 5d);
         calc.incrementCountOperation();
         result = calc.pow(result, 2);
         calc.incrementCountOperation();
-        temp = calc.multiplication(15d, 7d);
+        temp = calc.multiply(15d, 7d);
         calc.incrementCountOperation();
-        result = calc.addition(temp, result);
+        result = calc.add(temp, result);
         calc.incrementCountOperation();
-        result = calc.addition(result, 4.1);
+        result = calc.add(result, 4.1);
         calc.incrementCountOperation();
         System.out.println("Calculation using CalculatorWithCounterClassic:");
         System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " + result);

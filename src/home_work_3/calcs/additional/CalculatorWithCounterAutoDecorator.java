@@ -14,6 +14,11 @@ public class CalculatorWithCounterAutoDecorator implements ICalculator {
         return this.calculator;
     }
 
+    @Override
+    public String toString() {
+        return "CalculatorWithCounterAutoDecorator";
+    }
+
     /**
      * Returns the number of times an object's methods have been used.
      * @return counter.
@@ -29,9 +34,9 @@ public class CalculatorWithCounterAutoDecorator implements ICalculator {
      * @return the result of division type double
      */
     @Override
-    public double division(double a, double b) {
+    public double divide(double a, double b) {
         counter++;
-        return calculator.division(a, b);
+        return calculator.divide(a, b);
     }
 
     /**
@@ -41,9 +46,9 @@ public class CalculatorWithCounterAutoDecorator implements ICalculator {
      * @return the result of multiplication type double
      */
     @Override
-    public double multiplication(double a, double b) {
+    public double multiply(double a, double b) {
         counter++;
-        return calculator.multiplication(a, b);
+        return calculator.multiply(a, b);
     }
 
     /**
@@ -53,9 +58,9 @@ public class CalculatorWithCounterAutoDecorator implements ICalculator {
      * @return the result of subtruction a and b type double
      */
     @Override
-    public double subtraction(double a, double b) {
+    public double subtract(double a, double b) {
         counter++;
-        return calculator.subtraction(a, b);
+        return calculator.subtract(a, b);
     }
 
     /**
@@ -65,9 +70,9 @@ public class CalculatorWithCounterAutoDecorator implements ICalculator {
      * @return the result of addition type double
      */
     @Override
-    public double addition(double a, double b) {
+    public double add(double a, double b) {
         counter++;
-        return calculator.addition(a, b);
+        return calculator.add(a, b);
     }
 
     /**

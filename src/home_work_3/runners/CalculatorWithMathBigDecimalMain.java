@@ -6,10 +6,10 @@ public class CalculatorWithMathBigDecimalMain {
     public static void main(String[] args) {
         CalculatorWithBigDecimal calc = new CalculatorWithBigDecimal();
         double result;
-        result = calc.division(28d, 5d);
+        result = calc.divide(28d, 5d);
         result = calc.pow(result, 2);
-        result = calc.addition(calc.multiplication(15d, 7d), result);
-        result = calc.addition(result, 4.1);
+        result = calc.add(calc.multiply(15d, 7d), result);
+        result = calc.add(result, 4.1);
         System.out.println("Calculation using CalculatorWithBigDecimalExtends:");
         System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " + result);
     }

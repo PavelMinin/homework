@@ -120,13 +120,13 @@ public class CalculatorStringExpression {
                 double a = stackNum.pop();
                 double b = stackNum.pop();
                 if(lexeme.value.equals("+")) {
-                    stackNum.push(calculator.addition(b, a));
+                    stackNum.push(calculator.add(b, a));
                 } else if(lexeme.value.equals("-")) {
-                    stackNum.push(calculator.subtraction(b,a));
+                    stackNum.push(calculator.subtract(b,a));
                 } else if(lexeme.value.equals("*")) {
-                    stackNum.push(calculator.multiplication(b,a));
+                    stackNum.push(calculator.multiply(b,a));
                 } else if(lexeme.value.equals("/")) {
-                    stackNum.push(calculator.division(b,a));
+                    stackNum.push(calculator.divide(b,a));
                 } else if(lexeme.value.equals("^")) {
                     stackNum.push(Math.pow(b, a));
                 } else if(lexeme.value.equals("||")) {

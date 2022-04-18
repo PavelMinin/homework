@@ -11,6 +11,11 @@ public class CalculatorWithMemory {
         this.calculator = calculator;
     }
 
+    @Override
+    public String toString() {
+        return "CalculatorWithMemory";
+    }
+
     /**
      * Returns value of the memory and records to the memory 0.
      * @return value of the last operation.
@@ -35,7 +40,7 @@ public class CalculatorWithMemory {
      * @return the result of division type double
      */
     public double division(double a, double b) {
-        this.buffer = calculator.division(a, b);
+        this.buffer = calculator.divide(a, b);
         return this.buffer;
     }
 
@@ -46,7 +51,7 @@ public class CalculatorWithMemory {
      * @return the result of multiplication type double
      */
     public double multiplication(double a, double b) {
-        this.buffer = calculator.multiplication(a, b);
+        this.buffer = calculator.multiply(a, b);
         return this.buffer;
     }
 
@@ -57,7 +62,7 @@ public class CalculatorWithMemory {
      * @return the result of subtruction a and b type double
      */
     public double subtraction(double a, double b) {
-        this.buffer = calculator.subtraction(a, b);
+        this.buffer = calculator.subtract(a, b);
         return this.buffer;
     }
 
@@ -68,7 +73,7 @@ public class CalculatorWithMemory {
      * @return the result of addition type double
      */
     public double addition(double a, double b) {
-        this.buffer = calculator.addition(a, b);
+        this.buffer = calculator.add(a, b);
         return this.buffer;
     }
 

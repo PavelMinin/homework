@@ -4,6 +4,11 @@ import home_work_3.calcs.api.ICalculator;
 
 public class CalculatorWithMathExtends extends CalculatorWithOperator implements ICalculator {
 
+    @Override
+    public String toString() {
+        return "CalculatorWithMathExtends";
+    }
+
     /**
      * Returns the result of raising a to the power of b.
      * @param a the base

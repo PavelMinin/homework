@@ -5,6 +5,11 @@ import home_work_3.calcs.simple.CalculatorWithMathExtends;
 public class CalculatorWithCounterClassic extends CalculatorWithMathExtends {
     private long count = 0;
 
+    @Override
+    public String toString() {
+        return "CalculatorWithCounterClassic";
+    }
+
     /**
      * The counter of the object using classic. Increments counter, when call the method.
      */

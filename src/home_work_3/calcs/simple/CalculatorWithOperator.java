@@ -4,13 +4,18 @@ import home_work_3.calcs.api.ICalculator;
 
 public class CalculatorWithOperator implements ICalculator {
 
+    @Override
+    public String toString() {
+        return "CalculatorWithOperator";
+    }
+
     /**
      * Returns the result of division a to b.
      * @param a divident
      * @param b divider
      * @return the result of division type double
      */
-    public double division(double a, double b) {
+    public double divide(double a, double b) {
         return a / b;
     }
 
@@ -20,7 +25,7 @@ public class CalculatorWithOperator implements ICalculator {
      * @param b the second multiplier
      * @return the result of multiplication type double
      */
-    public double multiplication(double a, double b) {
+    public double multiply(double a, double b) {
         return a * b;
     }
 
@@ -30,7 +35,7 @@ public class CalculatorWithOperator implements ICalculator {
      * @param b subtrahend value
      * @return the result of substruction a and b type double
      */
-    public double subtraction(double a, double b) {
+    public double subtract(double a, double b) {
         return a - b;
     }
 
@@ -40,7 +45,7 @@ public class CalculatorWithOperator implements ICalculator {
      * @param b the second term
      * @return the result of addition type double
      */
-    public double addition(double a, double b) {
+    public double add(double a, double b) {
         return a + b;
     }
 

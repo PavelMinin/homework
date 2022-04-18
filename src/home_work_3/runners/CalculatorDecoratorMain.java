@@ -13,19 +13,23 @@ public class CalculatorDecoratorMain {
         System.out.println("Calculation using decorators (simple calculator is CalculatorWithMathExtends):");
 
         System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " +
-                calculator.addition(calculator.addition(calculator.pow(calculator.division(28,5), 2),
-                        calculator.multiplication(15, 7)), 4.1));
+                calculator.add(calculator.add(calculator.pow(calculator.divide(28,5), 2),
+                        calculator.multiply(15, 7)), 4.1));
 
         // (calculator instanceof CalculatorWithCounterAutoDecorator) is always true because we initialized
         // the ICalculator calculator as the CalculatorWithCounterAutoDecorator object.
-        CalculatorWithCounterAutoDecorator calcWithCounter = (CalculatorWithCounterAutoDecorator) calculator;
-        System.out.println("Current value of the counter of the calculator using: " +
-        calcWithCounter.getCounter());
-        if(calcWithCounter.getCalculator() instanceof CalculatorWithMemoryDecorator) {
-            CalculatorWithMemoryDecorator calcWithMemory = (CalculatorWithMemoryDecorator) calcWithCounter.getCalculator();
-            calcWithMemory.memorize();
-            System.out.println("Value of the last operation performed  = " +
-                    calcWithMemory.getMemory());
+        if(calculator instanceof CalculatorWithCounterAutoDecorator) {
+            CalculatorWithCounterAutoDecorator calcWithCounter = (CalculatorWithCounterAutoDecorator) calculator;
+            System.out.println("Current value of the counter of the calculator using: " +
+                    calcWithCounter.getCounter());
+            if(calcWithCounter.getCalculator() instanceof CalculatorWithMemoryDecorator
+                    && calcWithCounter.getCalculator() != null) {
+                CalculatorWithMemoryDecorator calcWithMemory =
+                        (CalculatorWithMemoryDecorator) calcWithCounter.getCalculator();
+                calcWithMemory.memorize();
+                System.out.println("Value of the last operation performed  = " +
+                        calcWithMemory.getMemory());
+            }
         }
     }
 }

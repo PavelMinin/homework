@@ -28,6 +28,23 @@ public class CalculatorWithCounterAutoAgregationBigDecimal {
         this.calculatorWithBigDecimal = calculator;
     }
 
+    @Override
+    public String toString() {
+        return "CalculatorWithCounterAutoAgregationBigDecimal";
+    }
+
+    public String getCalculatorInfo() {
+        if(calculatorWithOperator != null) {
+            return calculatorWithOperator.toString();
+        } else if (calculatorWithMathCopy != null) {
+            return calculatorWithMathCopy.toString();
+        } else if (calculatorWithMathExtends != null) {
+            return calculatorWithMathExtends.toString();
+        } else {
+            return calculatorWithBigDecimal.toString();
+        }
+    }
+
     /**
      * Returns the result of division a to b, using the object, that was passed as an argument.
      * @param a divident
@@ -37,13 +54,13 @@ public class CalculatorWithCounterAutoAgregationBigDecimal {
     public double division(double a, double b) {
         this.counter++;
         if(calculatorWithOperator != null) {
-            return calculatorWithOperator.division(a, b);
+            return calculatorWithOperator.divide(a, b);
         } else if (calculatorWithMathCopy != null) {
-            return calculatorWithMathCopy.division(a, b);
+            return calculatorWithMathCopy.divide(a, b);
         } else if (calculatorWithMathExtends != null) {
-            return calculatorWithMathExtends.division(a, b);
+            return calculatorWithMathExtends.divide(a, b);
         } else {
-            return calculatorWithBigDecimal.division(a, b);
+            return calculatorWithBigDecimal.divide(a, b);
         }
     }
 
@@ -56,13 +73,13 @@ public class CalculatorWithCounterAutoAgregationBigDecimal {
     public double multiplication(double a, double b) {
         this.counter++;
         if(calculatorWithOperator != null) {
-            return calculatorWithOperator.multiplication(a, b);
+            return calculatorWithOperator.multiply(a, b);
         } else if (calculatorWithMathCopy != null) {
-            return calculatorWithMathCopy.multiplication(a, b);
+            return calculatorWithMathCopy.multiply(a, b);
         } else if (calculatorWithMathExtends != null) {
-            return calculatorWithMathExtends.multiplication(a, b);
+            return calculatorWithMathExtends.multiply(a, b);
         } else {
-            return calculatorWithBigDecimal.multiplication(a, b);
+            return calculatorWithBigDecimal.multiply(a, b);
         }
     }
 
@@ -75,13 +92,13 @@ public class CalculatorWithCounterAutoAgregationBigDecimal {
     public double subtraction(double a, double b) {
         this.counter++;
         if(calculatorWithOperator != null) {
-            return calculatorWithOperator.subtraction(a, b);
+            return calculatorWithOperator.subtract(a, b);
         } else if (calculatorWithMathCopy != null) {
-            return calculatorWithMathCopy.subtraction(a, b);
+            return calculatorWithMathCopy.subtract(a, b);
         } else if (calculatorWithMathExtends != null) {
-            return calculatorWithMathExtends.subtraction(a, b);
+            return calculatorWithMathExtends.subtract(a, b);
         } else {
-            return calculatorWithBigDecimal.subtraction(a, b);
+            return calculatorWithBigDecimal.subtract(a, b);
         }
     }
 
@@ -94,13 +111,13 @@ public class CalculatorWithCounterAutoAgregationBigDecimal {
     public double addition(double a, double b) {
         this.counter++;
         if(calculatorWithOperator != null) {
-            return calculatorWithOperator.addition(a, b);
+            return calculatorWithOperator.add(a, b);
         } else if (calculatorWithMathCopy != null) {
-            return calculatorWithMathCopy.addition(a, b);
+            return calculatorWithMathCopy.add(a, b);
         } else if (calculatorWithMathExtends != null) {
-            return calculatorWithMathExtends.addition(a, b);
+            return calculatorWithMathExtends.add(a, b);
         } else {
-            return calculatorWithBigDecimal.addition(a, b);
+            return calculatorWithBigDecimal.add(a, b);
         }
     }
 
