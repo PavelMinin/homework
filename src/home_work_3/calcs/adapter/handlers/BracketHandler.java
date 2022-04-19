@@ -9,7 +9,14 @@ public class BracketHandler extends PatternHandler implements IHandler, Comparab
     private final int priority = 0;
 
     public BracketHandler(ICalculator calculator) {
-        super("\\( *" + DOUBLE_NUMBER_PATTERN + " *\\)");
+        super("\\(" + DOUBLE_NUMBER_PATTERN + "\\)");
+    }
+
+    @Override
+    public String toString() {
+        return "BracketHandler{" +
+                "priority=" + priority +
+                '}';
     }
 
     @Override

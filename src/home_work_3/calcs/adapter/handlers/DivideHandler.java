@@ -18,7 +18,7 @@ public class DivideHandler extends PatternHandler implements IHandler, Comparabl
     }
 
     public DivideHandler(ICalculator calculator) {
-        super(DOUBLE_NUMBER_PATTERN + " *\\/ *" + DOUBLE_NUMBER_PATTERN);
+        super(DOUBLE_NUMBER_PATTERN + "\\/" + DOUBLE_NUMBER_PATTERN);
         this.calculator = calculator;
     }
 

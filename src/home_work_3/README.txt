@@ -1,6 +1,6 @@
 ========================================================================================================================
                                                       home_work_3
-                  29 classes (21 according to terms of reference, 4 bonus with BigDecimal), 1 interface
+                  39 classes (31 according to terms of reference, 4 bonus with BigDecimal), 2 interfaces
 ========================================================================================================================
 
 ========================================================================================================================
@@ -137,7 +137,23 @@ class CalculatorDecoratorMain (pkg runners) - uses pattern decorator to add new 
 TASK 12**
 ========================================================================================================================
 
-in progress...
+UPDATED VERSION (USES HANDLERS) {
+
+class CalculatorStringExpressionNew (pkg calcs.adapter) - adapter to calculate string expression. Uses handlers for
+                                parsing strings.
+class ExpressionAnalyzer (pkg calcs.adapter) - checks the math expressions for mistakes. Print message in console if it
+                                has a mistake with description.
+
+interface IHandler (pkg calcs.adapter.handlers.api) - describes functionality of handlers.
+
+class PatternHandler (pkg calcs.adapter.handlers) - abstract class that realizes handle() method.
+
+classes AbsHandler, AddHandler, BracketHandler, DivideHandler, MultiplyHandler, PowHanler, SubtractHandler - handlers,
+                                that implement regexes and math functions to use it them handle() method.
+}
+
+
+OLD VERSION WITH INCORRECT OPERATOR || {
 
 There is huge logical mistake: || - like an OR operator, but not like an abs operator.
 
@@ -147,7 +163,5 @@ class CalculatorStringExpression (pkg calcs.additional) - new calculator, that u
                                 polish notation (RPN) and calculates it using CalculatorWithBigDecimal.
 class CalculatorStringExpressionMain (pkg calcs.runners) - runner for CalculatorStringExpression. Calculates an
                                 expression (4.1 + 15 * 7) ^ 2 + (28 / 5) ^ 2 * PI - E.
-
-            Don't kill me, please. Code isn't optimal. It's a Frankenstein! But I'm trying to do my best!
-
+                                }
 ========================================================================================================================

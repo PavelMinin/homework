@@ -18,7 +18,7 @@ public class PowHandler extends PatternHandler implements IHandler, Comparable<I
     }
 
     public PowHandler(ICalculator calculator) {
-        super(DOUBLE_NUMBER_PATTERN + " *\\^ *" + INT_NUMBER_PATTERN);
+        super(DOUBLE_NUMBER_PATTERN + "\\^" + INT_NUMBER_PATTERN);
         this.calculator = calculator;
     }
 

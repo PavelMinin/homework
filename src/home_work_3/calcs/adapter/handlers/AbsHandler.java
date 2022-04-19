@@ -10,8 +10,16 @@ public class AbsHandler extends PatternHandler implements IHandler, Comparable<I
     private final int priority = 1;
 
     public AbsHandler(ICalculator calculator) {
-        super("\\| *" + DOUBLE_NUMBER_PATTERN + " *\\|");
+        super("\\|" + DOUBLE_NUMBER_PATTERN + "\\|");
         this.calculator = calculator;
+    }
+
+    @Override
+    public String toString() {
+        return "AbsHandler{" +
+                "calculator=" + calculator +
+                ", priority=" + priority +
+                '}';
     }
 
     @Override

@@ -20,7 +20,6 @@ public abstract class PatternHandler implements IHandler {
     @Override
     public final String handle(String expression) {
         boolean isMatched = false;
-
         do {
             Matcher matcher = this.pattern.matcher(expression);
             isMatched = matcher.find();
