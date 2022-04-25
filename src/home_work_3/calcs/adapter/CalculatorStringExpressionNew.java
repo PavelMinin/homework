@@ -54,7 +54,7 @@ public class CalculatorStringExpressionNew {
      * home_work_3.ExpressionAnalyze.checkExpression().
      * If expression incorrect result is NaN and show problem in console.
      * Expressions in a brackets are calculated first.
-     * After that, the call of hanlers will continue until the last sing of abs "|".
+     * After that, the call of handlers will continue until the last sing of abs "|".
      * @param expression string with expression.
      * @return double value of the result
      */
