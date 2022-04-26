@@ -3,8 +3,9 @@ package students;
 import students.addition.random.RandomStudentGenerator;
 
 import java.io.IOException;
+import java.util.Objects;
 
-public class Student {
+public class Student implements Comparable<Student> {
     private final int number;
     private String name;
     private int age;
@@ -89,5 +90,24 @@ public class Student {
                 "; участник олимпиад: ";
         info += (isOlimpiadaMember ? "да" : "нет");
         return info;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return number == student.number && age == student.age && Double.compare(student.mark, mark) == 0
+                && isOlimpiadaMember == student.isOlimpiadaMember && Objects.equals(name, student.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number, name, age, mark, isOlimpiadaMember);
+    }
+
+    @Override
+    public int compareTo(Student another) {
+        return getNumber() - another.getNumber();
     }
 }
