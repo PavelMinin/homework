@@ -23,35 +23,46 @@ public class DataContainer<T> implements Iterable<T>{
             return -1;
         }
 
-        if(this.data.length == 0 || this.data[this.data.length - 1] != null) {
+        int j = 0;
+
+        for (T datum : this.data) {
+            if(datum != null) {
+                j++;
+            } else {
+                break;
+            }
+        }
+
+        if(this.data.length == 0 || j == this.data.length) {
             this.data = Arrays.copyOf(this.data, data.length + 1);
             this.data[data.length - 1] = item;
             return data.length - 1;
         } else {
-            int i = 0;
-            while(this.data[i] != null) {
-                i++;
-            }
-            this.data[i] = item;
-            return i;
+            this.data[j] = item;
+            return j;
         }
     }
 
     /**
      * This method gets item from container's cell with passed index and returns it.
-     * If cell is empty or doesn't exist, method returns null.
      *
      * @param index index of the requested item.
      * @return item or null, if item doesn't exist.
      */
     public T get(int index) {
-        if(index < 0) {
-            return null;
-        } else if(index < this.data.length) {
-            return this.data[index];
-        } else {
+        if(!checkIndex(index)) {
             return null;
         }
+        return this.data[index];
+    }
+
+    /**
+     * This method checks index of element.
+     * @param index an input index.
+     * @return true - if the index correct, false - if the index incorrect.
+     */
+    private boolean checkIndex(int index) {
+        return index >= 0 && index < this.data.length;
     }
 
     /**
@@ -72,24 +83,16 @@ public class DataContainer<T> implements Iterable<T>{
      * @return true - if item was deleted, or false - if item with passed index doesn't exist.
      */
     public boolean delete(int index) {
-        if(index < 0 || index >= this.data.length) {
+        if(!checkIndex(index)) {
             return false;
-        } else if(this.data[index] == null) {
-            System.out.println("Error: item is null.");
-            dataCleanUp();
-            return false;
-        } else {
-            T[] temp = Arrays.copyOf(this.data, this.data.length - 1);
-            int count = 0;
-            for(int i = 0; i < this.data.length; i++) {
-                if(i != index) {
-                    temp[count] = this.data[i];
-                    count++;
-                }
-            }
-            this.data = Arrays.copyOf(temp, temp.length);
-            return true;
         }
+
+        for (int i = index + 1; i < this.data.length; i++) {
+            this.data[i - 1] = this.data[i];
+        }
+
+        this.data = Arrays.copyOf(this.data, this.data.length - 1);
+        return true;
     }
 
     /**
@@ -100,11 +103,12 @@ public class DataContainer<T> implements Iterable<T>{
      * false - if the element has not been deleted.
      */
     public boolean delete(T item) {
-
-        for (int i = 0; i < this.data.length; i++) {
-            if(this.data[i].equals(item) && this.data[i] != null) return delete(i);
+        if(item == null) {
+            return false;
         }
-
+        for (int i = 0; i < this.data.length; i++) {
+            if(item.equals(this.data[i])) return delete(i);
+        }
         return false;
     }
 
@@ -114,13 +118,20 @@ public class DataContainer<T> implements Iterable<T>{
      */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("DataContainer: {\n");
-        int i = 0;
-        while(i < this.data.length) {
-            if(this.data[i] != null) sb.append(this.data[i].toString()).append(",\n");
-            i++;
+        StringBuilder sb = new StringBuilder("DataContainer: \n[ ");
+        boolean needsComma = false;
+
+        for (T datum : this.data) {
+            if(datum != null) {
+                if(needsComma) {
+                    sb.append(",\n");
+                } else {
+                    needsComma = true;
+                }
+                sb.append(datum);
+            }
         }
-        sb.append("};");
+        sb.append(" ]");
 
         return sb.toString();
     }
@@ -280,17 +291,5 @@ public class DataContainer<T> implements Iterable<T>{
             if(!hasNext()) throw new IndexOutOfBoundsException("End of list.");
             return get(index++);
         }
-    }
-
-    /**
-     * This method cleans array from the null objects.
-     */
-    private void dataCleanUp() {
-        int count = 0;
-        for (T datum : this.data) {
-            if(datum != null) count++;
-        }
-
-        this.data = Arrays.copyOf(this.data, count);
     }
 }
