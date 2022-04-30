@@ -2,8 +2,9 @@ package tower_of_hanoi.api;
 
 public interface ITowerOfHanoi {
     boolean makeMove(int fromRod, int toRod);
-    void showCurrentState();
-    void showCongratulation();
+    String getCurrentState();
+    String getCongratulation();
     int getStepCounter();
     void count();
+    boolean checkState();
 }

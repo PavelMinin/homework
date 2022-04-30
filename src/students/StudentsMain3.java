@@ -25,11 +25,11 @@ public class StudentsMain3 extends StudentsMain1 {
         System.out.println("\nТоп-10 сортировка по имени (возраставние):\n");
         printTopTen(filteredStudents);
 
-        filteredStudents.sort(new MarkComparator());
+        filteredStudents.sort(new MarkComparator().reversed());
         System.out.println("\nТоп-10 сортировка по оценке (убывание):\n");
         printTopTen(filteredStudents);
 
-        filteredStudents.sort(new AgeComparator().thenComparing(new MarkComparator()));
+        filteredStudents.sort(new AgeComparator().thenComparing(new MarkComparator().reversed()));
         System.out.println("\nТоп-10 сортировка по оценке (убывание) для каждого возраста:\n");
         printForEachAge(filteredStudents);
     }

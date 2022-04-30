@@ -33,10 +33,18 @@ public class HanoiGame implements ITowerOfHanoi {
         }
     }
 
+    public int getFieldRowSize() {
+        return this.field.length;
+    }
+
+    public int getFieldColumnSize() {
+        return this.field[0].length;
+    }
+
     @Override
     public boolean makeMove(int fromRod, int toRod) {
 
-        if(fromRod > this.field.length - 1 || toRod > this.field.length - 1) {
+        if(fromRod > this.field.length - 1 || toRod > this.field.length - 1 || fromRod == toRod) {
             return false;
         }
 
@@ -74,7 +82,20 @@ public class HanoiGame implements ITowerOfHanoi {
     }
 
     @Override
-    public void showCurrentState() {
+    public boolean checkState() {
+        boolean onCorrectPlace = false;
+        for(int i = 0; i < field.length; i++) {
+            if(this.field[i][this.field[i].length - 1] == i + 1) {
+                onCorrectPlace = true;
+            } else {
+                return false;
+            }
+        }
+        return onCorrectPlace;
+    }
+
+    @Override
+    public String getCurrentState() {
         String emptySymbol;
         StringBuilder sb = new StringBuilder();
 
@@ -83,18 +104,19 @@ public class HanoiGame implements ITowerOfHanoi {
         for (int i = 0; i < this.field.length; i++) {
             for (int j = 0; j < this.field[i].length; j++) {
                 if(this.field[i][j] <= 9) {
-                    sb.append(emptySymbol).append(this.field[i][j]).append("    ");
+                    int num = this.field[i][j];
+                    sb.append(emptySymbol).append(num == 0 ? "*" : num).append("    ");
                 } else {
                     sb.append(this.field[i][j]).append("    ");
                 }
             }
             sb.append("\n");
         }
-        System.out.println(sb);
+        return sb.toString();
     }
 
     @Override
-    public void showCongratulation() {
+    public String getCongratulation() {
         int count = getStepCounter();
         String result = "!!!!!!!!!!!!!!!!!!ПОЗДРАВЛЯЕМ!!!!!!!!!!!!!!!!!!\n" +
                 "Вы выиграли за " + count;
@@ -108,7 +130,7 @@ public class HanoiGame implements ITowerOfHanoi {
             System.out.println("Ошибка в подсчете шагов!");
         }
 
-        System.out.println(result);
+        return result;
     }
 
     @Override

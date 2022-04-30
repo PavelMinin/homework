@@ -108,6 +108,6 @@ public class Student implements Comparable<Student> {
 
     @Override
     public int compareTo(Student another) {
-        return getNumber() - another.getNumber();
+        return getName().compareTo(another.getName());
     }
 }
