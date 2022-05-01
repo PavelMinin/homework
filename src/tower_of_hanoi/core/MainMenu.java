@@ -21,6 +21,8 @@ public class MainMenu implements IMainMenu {
             if(manualMode == 1) {
                 ManualMode manualGame = new ManualMode(createNewField());
                 while(!manualGame.makeMove());
+                System.out.println("Хотите заново запустить игру? (да / нет)");
+                if(IMainMenu.getYesNoAnswerFromConsole()) startGame();
                 //TODO сохранение в файл
             } else if(manualMode == 2) {
                 System.out.println("In progress"); //TODO Загрузка из файла
@@ -73,6 +75,21 @@ public class MainMenu implements IMainMenu {
         } else {
             this.automaticMode = false;
             this.manualMode = false;
+        }
+    }
+
+    void quitGame() {
+        System.out.println("Уверены, что хотите выйти? (да / нет)");
+        if(IMainMenu.getYesNoAnswerFromConsole()) {
+            System.out.println("Сохранить текущую игру? (да / нет)");
+            if(IMainMenu.getYesNoAnswerFromConsole()) {
+                System.out.println("Введите имя файла (латинские буквы и цифры, от 3 до 16 символов):");
+                if(IMainMenu.saveToFile(IMainMenu.getFileNameFromConsole())) {
+                    System.out.println("Игра успешно сохранена.");
+                } else {
+                    System.out.println("Что-то пошло не так...");
+                }
+            }
         }
     }
 }
