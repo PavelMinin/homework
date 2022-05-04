@@ -15,7 +15,7 @@ public class Arrays_2_4 {
         int[] array = ArraysUtils.arrayRandom(50,100);
 
         System.out.println("Массив произвольных чисел размером 50 элементов со значениями от 0 до 99 включительно:");
-        showArray(array);
+        System.out.println(showArray(array));
         System.out.println("Задание 2.4.6. Сумма цифр элементов массива: " + getSumOfDigitsOfElements(array) + "\n");
 
         System.out.println("Задание 2.4.1. Сумма четных положительных элементов массива: "
@@ -25,7 +25,7 @@ public class Arrays_2_4 {
                 + getMaxElementWithEvenIndex(array) + "\n");
 
         System.out.println("Задание 2.4.3. Элементы массива, меньшие среднего арифметического:\n");
-        showArray(getLessThenAverageElements(array));
+        System.out.println(showArray(getLessThenAverageElements(array)));
 
         System.out.println("\nЗадание 2.4.4. Два наименьших элемента массива (по возрастанию либо равные):\n");
         System.out.println("Наименьший элемент массива: " + getLeastElement(array));
@@ -36,7 +36,7 @@ public class Arrays_2_4 {
         System.out.println("\nЗадание 2.4.5. Сжатый массив с удаленными элементами в заданном диапазоне:\n");
         System.out.println("Введите диапазон удаляемых значений 0 до 99 включительно:");
         range = getRangeFrom_0_To_100();
-        showArray(removeArrayElementsInRange(array, range[0], range[1]));
+        System.out.println(showArray(removeArrayElementsInRange(array, range[0], range[1])));
     }
 
     /**
@@ -45,6 +45,9 @@ public class Arrays_2_4 {
      * @return значение суммы четных положительных элементов int sum
      */
     public static int getSumOfEvenElements(int[] array) {
+        if(array == null) return -1;
+        if(array.length == 0) return 0;
+
         int sum = 0;
         for(int i : array) {
             if((i % 2 == 0) && (i > 0)) { // Условие про положительность в ТЗ
@@ -60,6 +63,9 @@ public class Arrays_2_4 {
      * @return значение максимального элемента с четным индексом int maxValueOfEvenIndexElement
      */
     public static int getMaxElementWithEvenIndex(int[] array) {
+        if(array == null) return -1;
+        if(array.length == 0) return 0;
+
         int maxValueOfEvenIndexElement = Integer.MIN_VALUE;
         for(int i = 0; i < array.length; i += 2) {
             if(array[i] > maxValueOfEvenIndexElement) {
@@ -79,6 +85,9 @@ public class Arrays_2_4 {
      * @return целочисленный массив элементов, меньших мреднего арифметического
      */
     public static int[] getLessThenAverageElements(int[] array) {
+        if(array == null) return null;
+        if(array.length == 0) return new int[]{0};
+
         int sum = 0;
         int average;
         int[] arrayLessThenAverageElements;
@@ -114,6 +123,9 @@ public class Arrays_2_4 {
      * @return значение наименьшего элемента массива int leastElement
      */
     public static int getLeastElement(int[] array) {
+        if(array == null) return -1;
+        if(array.length == 0) return 0;
+
         int leastElement = Integer.MAX_VALUE;
         for(int i : array) {
             if(i < leastElement) {
@@ -132,6 +144,9 @@ public class Arrays_2_4 {
      * @return значение второго по размеру элемента массива int nextToLeastElement
      */
     public static int getNextToLeastElement(int[] array) {
+        if(array == null) return -1;
+        if(array.length == 0) return 0;
+
         int leastElement;
         int nextToLeastElement = Integer.MAX_VALUE;
         leastElement = getLeastElement(array);
@@ -166,6 +181,9 @@ public class Arrays_2_4 {
      * @return ссылка на измененный массив
      */
     public static int [] removeArrayElementsInRange(int[] array, int startRange, int endRange) {
+        if(array == null) return null;
+        if(array.length == 0) return new int[]{0};
+
         int count = 0;
         int newSize = array.length;
         while(count < newSize) { // Перезаписываем ячейки со значением, попавшим в диапазон со сдвишом элементов массива влево
@@ -188,6 +206,9 @@ public class Arrays_2_4 {
      * @return int sum - сумма цифр каждого элемента массива.
      */
     public static int getSumOfDigitsOfElements(int[] array) {
+        if(array == null) return -1;
+        if(array.length == 0) return 0;
+
         int sum = 0, num;
         for(int j : array) {
             num = j;
@@ -204,7 +225,7 @@ public class Arrays_2_4 {
      * Форматирование расчитано на элементы со значением от 0 до 99 включительно.
      * @param array массив целочисленных элементов.
      */
-    public static void showArray(int[] array) {
+    public static String showArray(int[] array) {
         StringBuilder str = new StringBuilder();
         for(int i = 0; i < array.length; i++) {
             if(array[i] < 10) {
@@ -216,7 +237,7 @@ public class Arrays_2_4 {
                 str.append("\n");
             }
         }
-        System.out.println(str);
+        return str.toString();
     }
 
     /**
