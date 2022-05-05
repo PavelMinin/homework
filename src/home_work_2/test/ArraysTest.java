@@ -84,16 +84,146 @@ public class ArraysTest {
     }
 
     @Test
-    @DisplayName("Тест методов различных реализаций интерфейса IArraysOperation_new.")
+    @DisplayName("Тест метода сложения всех четных положительных элементов массива.")
     public void getSumOfEvenElementsTest() {
-
         Assertions.assertEquals(0, Arrays_2_4.getSumOfEvenElements(arr1));
-        Assertions.assertEquals(53, Arrays_2_4.getSumOfEvenElements(arr2));
-        Assertions.assertEquals(38, Arrays_2_4.getSumOfEvenElements(arr3));
-        Assertions.assertEquals(38, Arrays_2_4.getSumOfEvenElements(arr4));
-        Assertions.assertEquals(5, Arrays_2_4.getSumOfEvenElements(arr5));
-        Assertions.assertEquals(126 + 13 + 345 + 7654 + 1 + -569 + 1024 + 96857 + 3 + -55 + 7,
-                Arrays_2_4.getSumOfEvenElements(arr6));
+        Assertions.assertEquals(36, Arrays_2_4.getSumOfEvenElements(arr2));
+        Assertions.assertEquals(20, Arrays_2_4.getSumOfEvenElements(arr3));
+        Assertions.assertEquals(20, Arrays_2_4.getSumOfEvenElements(arr4));
+        Assertions.assertEquals(0, Arrays_2_4.getSumOfEvenElements(arr5));
+        Assertions.assertEquals(126 + 7654 + 1024, Arrays_2_4.getSumOfEvenElements(arr6));
         Assertions.assertEquals(-1, Arrays_2_4.getSumOfEvenElements(arr7));
+    }
+
+    @Test
+    @DisplayName("Тест метода поиска максимально элемента с четным индексом.")
+    public void getMaxElementWithEvenIndexTest() {
+        Assertions.assertEquals(0, Arrays_2_4.getMaxElementWithEvenIndex(arr1));
+        Assertions.assertEquals(32, Arrays_2_4.getMaxElementWithEvenIndex(arr2));
+        Assertions.assertEquals(9, Arrays_2_4.getMaxElementWithEvenIndex(arr3));
+        Assertions.assertEquals(8, Arrays_2_4.getMaxElementWithEvenIndex(arr4));
+        Assertions.assertEquals(1, Arrays_2_4.getMaxElementWithEvenIndex(arr5));
+        Assertions.assertEquals(1024, Arrays_2_4.getMaxElementWithEvenIndex(arr6));
+        Assertions.assertEquals(-1, Arrays_2_4.getMaxElementWithEvenIndex(arr7));
+    }
+
+    @Test
+    @DisplayName("Тест метода возвращения массива с элементами со значением меньше среднего арифметического.")
+    public void getLessThenAverageElementsTest() {
+        int[] arrExp1 = new int[0];
+        int[] arrExp2 =  new int[]{4};
+        int[] arrExp3 = new int[]{1, 2, 3, 0};
+        int[] arrExp4 = new int[]{0, 3, 2, 1};
+        int[] arrExp5 = new int[0];
+        int[] arrExp6 = new int[]{126, 13, 345, 7654, 1 ,-569, 1024, 3, -55, 7};
+        int[] arrExp7 = null;
+
+        Assertions.assertTrue(checkArrays(arrExp1,Arrays_2_4.getLessThenAverageElements(arr1)));
+        Assertions.assertTrue(checkArrays(arrExp2,Arrays_2_4.getLessThenAverageElements(arr2)));
+        Assertions.assertTrue(checkArrays(arrExp3,Arrays_2_4.getLessThenAverageElements(arr3)));
+        Assertions.assertTrue(checkArrays(arrExp4,Arrays_2_4.getLessThenAverageElements(arr4)));
+        Assertions.assertTrue(checkArrays(arrExp5,Arrays_2_4.getLessThenAverageElements(arr5)));
+        Assertions.assertTrue(checkArrays(arrExp6,Arrays_2_4.getLessThenAverageElements(arr6)));
+        Assertions.assertTrue(checkArrays(arrExp7,Arrays_2_4.getLessThenAverageElements(arr7)));
+    }
+
+    @Test
+    @DisplayName("Тест метода поиска наименьшего элемента.")
+    public void getLeastElementTest() {
+
+        Assertions.assertEquals(0, Arrays_2_4.getLeastElement(arr1));
+        Assertions.assertEquals(4, Arrays_2_4.getLeastElement(arr2));
+        Assertions.assertEquals(0, Arrays_2_4.getLeastElement(arr3));
+        Assertions.assertEquals(0, Arrays_2_4.getLeastElement(arr4));
+        Assertions.assertEquals(1, Arrays_2_4.getLeastElement(arr5));
+        Assertions.assertEquals(-569, Arrays_2_4.getLeastElement(arr6));
+        Assertions.assertEquals(-1, Arrays_2_4.getLeastElement(arr7));
+    }
+
+    @Test
+    @DisplayName("Тест метода поиска второго по значению элемента.")
+    public void getNextToLeastElement() {
+
+        Assertions.assertEquals(0, Arrays_2_4.getNextToLeastElement(arr1));
+        Assertions.assertEquals(17, Arrays_2_4.getNextToLeastElement(arr2));
+        Assertions.assertEquals(1, Arrays_2_4.getNextToLeastElement(arr3));
+        Assertions.assertEquals(1, Arrays_2_4.getNextToLeastElement(arr4));
+        Assertions.assertEquals(1, Arrays_2_4.getNextToLeastElement(arr5));
+        Assertions.assertEquals(-55, Arrays_2_4.getNextToLeastElement(arr6));
+        Assertions.assertEquals(-1, Arrays_2_4.getNextToLeastElement(arr7));
+    }
+
+    @Test
+    @DisplayName("Тест метода возвращения массива с кдаленными элементами в диапазоне.")
+    public void removeArrayElementsInRangeTest() {
+        int[] arrForCheck1 = new int[0];
+        int[] arrForCheck2 =  new int[]{4, 17, 32};
+        int[] arrForCheck3 = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+        int[] arrForCheck4 = new int[]{0, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+        int[] arrForCheck5 = new int[]{1, 1, 1, 1, 1};
+        int[] arrForCheck6 = new int[]{126, 13, 345, 7654, 1 ,-569, 1024, 96857, 3, -55, 7};
+        int[] arrForCheck7 = null;
+
+        int[] arrExp1 = new int[0];
+        int[] arrExp2 =  new int[]{4, 0, 0};
+        int[] arrExp3 = new int[]{1, 2, 3, 0, 0, 0, 0, 0, 0, 0};
+        int[] arrExp4 = new int[]{0, 9, 8, 7, 6, 0, 0, 0, 0, 0};
+        int[] arrExp5 = new int[]{0, 0, 0, 0, 0};
+        int[] arrExp6 = new int[]{7654, -569, 1024, 96857, -55 ,0, 0, 0, 0, 0, 0};
+        int[] arrExp7 = null;
+
+        Assertions.assertTrue(checkArrays(arrExp1,Arrays_2_4.removeArrayElementsInRange(arrForCheck1, 0, 1)));
+        Assertions.assertTrue(checkArrays(arrExp2,Arrays_2_4.removeArrayElementsInRange(arrForCheck2, 10, 100)));
+        Assertions.assertTrue(checkArrays(arrExp3,Arrays_2_4.removeArrayElementsInRange(arrForCheck3, 4, 10)));
+        Assertions.assertTrue(checkArrays(arrExp4,Arrays_2_4.removeArrayElementsInRange(arrForCheck4, 1, 5)));
+        Assertions.assertTrue(checkArrays(arrExp5,Arrays_2_4.removeArrayElementsInRange(arrForCheck5, 1, 1)));
+        Assertions.assertTrue(checkArrays(arrExp6,Arrays_2_4.removeArrayElementsInRange(arrForCheck6, 1, 1000)));
+        Assertions.assertTrue(checkArrays(arrExp7,Arrays_2_4.removeArrayElementsInRange(arrForCheck7, 100500, 100501)));
+    }
+
+    @Test
+    @DisplayName("Тест метода сложения всех цифр чисел массива.")
+    public void getSumOfDigitsOfElementsTest() {
+
+        Assertions.assertEquals(0, Arrays_2_4.getSumOfDigitsOfElements(arr1));
+        Assertions.assertEquals(17, Arrays_2_4.getSumOfDigitsOfElements(arr2));
+        Assertions.assertEquals(45, Arrays_2_4.getSumOfDigitsOfElements(arr3));
+        Assertions.assertEquals(45, Arrays_2_4.getSumOfDigitsOfElements(arr4));
+        Assertions.assertEquals(5, Arrays_2_4.getSumOfDigitsOfElements(arr5));
+        Assertions.assertEquals(130, Arrays_2_4.getSumOfDigitsOfElements(arr6));
+        Assertions.assertEquals(-1, Arrays_2_4.getSumOfDigitsOfElements(arr7));
+    }
+
+    @Test
+    @DisplayName("Тест метода вывода массива в строку.")
+    public void showArrayTest() {
+
+        Assertions.assertEquals("", Arrays_2_4.showArray(arr1));
+        Assertions.assertEquals("4, 17, 32", Arrays_2_4.showArray(arr2));
+        Assertions.assertEquals("1, 2, 3, 4, 5, 6, 7, 8, 9, 0", Arrays_2_4.showArray(arr3));
+        Assertions.assertEquals("0, 9, 8, 7, 6, 5, 4, 3, 2, 1", Arrays_2_4.showArray(arr4));
+        Assertions.assertEquals("1, 1, 1, 1, 1", Arrays_2_4.showArray(arr5));
+        Assertions.assertEquals("126, 13, 345, 7654, 1, -569, 1024, 96857, 3, -55, 7", Arrays_2_4.showArray(arr6));
+        Assertions.assertEquals(null, Arrays_2_4.showArray(arr7));
+    }
+
+
+    public static boolean checkArrays(int[] expected, int[] actual) {
+        boolean isEqual = false;
+        if( expected == null && actual == null) {
+            return true;
+        } else if(expected.length == 0 && actual.length == 0) {
+            return true;
+        } else if(expected.length == actual.length) {
+            for (int i = 0; i < expected.length; i++) {
+                if(expected[i] == actual[i]) {
+                    isEqual = true;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        return isEqual;
     }
 }

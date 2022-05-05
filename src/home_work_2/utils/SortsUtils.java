@@ -7,6 +7,9 @@ public class SortsUtils {
      * @param array массив целочисленных элементов типа int[]
      */
     public static void bubble(int[] array) {
+        if(array == null) return;
+        if(array.length == 0) return;
+
         for(int i = 0; i < array.length; i++) { // Перебор все элементов массива
             for(int j = array.length - 1; j > i; j--) { // Перебор всех элементов массива после i-го
                 if(array[j-1] > array[j]) { // Если левый элемент больше правого - меняем местами
@@ -23,6 +26,9 @@ public class SortsUtils {
      * @param array массив целочисленных элементов типа int[]
      */
     public static void shake(int[] array) {
+        if(array == null) return;
+        if(array.length == 0) return;
+
         int left = 0; // Левая граница сортируемой области массива
         int right = array.length - 1; // Правая граница сортируемой области массива
         int flag = 1; // Флаг наличия перемещений

@@ -86,7 +86,7 @@ public class Arrays_2_4 {
      */
     public static int[] getLessThenAverageElements(int[] array) {
         if(array == null) return null;
-        if(array.length == 0) return new int[]{0};
+        if(array.length == 0) return new int[0];
 
         int sum = 0;
         int average;
@@ -182,14 +182,13 @@ public class Arrays_2_4 {
      */
     public static int [] removeArrayElementsInRange(int[] array, int startRange, int endRange) {
         if(array == null) return null;
-        if(array.length == 0) return new int[]{0};
+        if(array.length == 0) return new int[0];
+        if(startRange == 0 || endRange == 0) return null;
 
         int count = 0;
-        int newSize = array.length;
-        while(count < newSize) { // Перезаписываем ячейки со значением, попавшим в диапазон со сдвишом элементов массива влево
+        while(count < array.length) { // Перезаписываем ячейки со значением, попавшим в диапазон со сдвишом элементов массива влево
             if(startRange <= array[count] && array[count] <= endRange) {
-                newSize--;
-                for(int i = count; i < newSize; i++) {
+                for(int i = count; i < array.length - 1; i++) {
                     array[i] = array[i+1];
                     array[array.length - 1] = 0; // Заполняем последний элемент массива 0
                 }
@@ -211,7 +210,7 @@ public class Arrays_2_4 {
 
         int sum = 0, num;
         for(int j : array) {
-            num = j;
+            num = Math.abs(j);
             while(num > 0) {
                 sum += num % 10;
                 num /= 10;
@@ -226,17 +225,19 @@ public class Arrays_2_4 {
      * @param array массив целочисленных элементов.
      */
     public static String showArray(int[] array) {
+        if (array == null) return null;
+        if (array.length == 0) return "";
+
         StringBuilder str = new StringBuilder();
-        for(int i = 0; i < array.length; i++) {
-            if(array[i] < 10) {
-                str.append(" ").append(array[i]).append("    ");
+        boolean needComma = false;
+        for (int j : array) {
+            if (!needComma) {
+                needComma = true;
             } else {
-                str.append(array[i]).append("    ");
+                str.append(", ");
             }
-            if((i + 1) % 10 == 0) {
-                str.append("\n");
+                str.append(j);
             }
-        }
         return str.toString();
     }
 
