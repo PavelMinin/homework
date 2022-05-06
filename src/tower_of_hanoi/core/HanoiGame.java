@@ -44,7 +44,7 @@ public class HanoiGame implements ITowerOfHanoi {
     @Override
     public boolean makeMove(int fromRod, int toRod) {
 
-        if(fromRod > this.field.length - 1 || toRod > this.field.length - 1 || fromRod == toRod) {
+        if(fromRod > this.field[0].length - 1 || toRod > this.field[0].length - 1 || fromRod == toRod) {
             return false;
         }
 
@@ -66,7 +66,9 @@ public class HanoiGame implements ITowerOfHanoi {
                 break;
             }
         }
-        if(ringFromValue < ringToValue) {
+        if(ringFromValue == 0) {
+            return false;
+        } else if(ringFromValue < ringToValue) {
             this.field[ringFromRow][fromRod] = 0;
             this.field[ringToRow - 1][toRod] = ringFromValue;
             count();

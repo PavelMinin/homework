@@ -2,6 +2,8 @@ package tower_of_hanoi.api;
 
 import tower_of_hanoi.core.HanoiGame;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public interface IMainMenu {
@@ -14,14 +16,14 @@ public interface IMainMenu {
     void selectMode();
 
     static boolean saveToFile(String fileName) {
-        /*File file = new File("/Users/pavelminin/IdeaProjects/Md-JC1/homework/src/tower_of_hanoi/saved_games/"
+        File file = new File("/Users/pavelminin/IdeaProjects/Md-JC1/homework/src/tower_of_hanoi/saved_games/"
                 + fileName + ".txt");
         try{
             return file.createNewFile();
         }
         catch (IOException ex){
             System.out.println(ex.getMessage());
-        }*/
+        }
         return false;
     }
 
@@ -42,7 +44,8 @@ public interface IMainMenu {
         boolean isCorrect = false;
         do {
             if (!console.hasNextInt()) {
-                if (console.hasNext("q")) {
+                if (console.hasNext("в")) {
+                    console.nextLine();
                     return -1;
                 }
                 System.out.println("Введено не число. Пожалуйста, повторите ввод.");
