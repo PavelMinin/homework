@@ -2,9 +2,13 @@ package tower_of_hanoi.core;
 
 import tower_of_hanoi.api.ITowerOfHanoi;
 
-public class HanoiGame implements ITowerOfHanoi {
+import java.io.Serializable;
+import java.util.Arrays;
+
+public class HanoiGame implements ITowerOfHanoi, Serializable {
     private final int[][] field;
     private int stepCounter;
+
 
     public HanoiGame() {
         this.field = new int[4][3];
@@ -143,5 +147,13 @@ public class HanoiGame implements ITowerOfHanoi {
     @Override
     public int getStepCounter() {
         return this.stepCounter;
+    }
+
+    @Override
+    public String toString() {
+        return "HanoiGame{" +
+                "field=" + Arrays.toString(field) +
+                ", stepCounter=" + stepCounter +
+                '}';
     }
 }

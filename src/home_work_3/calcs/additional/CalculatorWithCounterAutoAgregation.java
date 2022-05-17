@@ -5,9 +5,9 @@ import home_work_3.calcs.simple.CalculatorWithMathExtends;
 import home_work_3.calcs.simple.CalculatorWithOperator;
 
 public class CalculatorWithCounterAutoAgregation {
-    CalculatorWithOperator calculatorWithOperator;
-    CalculatorWithMathCopy calculatorWithMathCopy;
-    CalculatorWithMathExtends calculatorWithMathExtends;
+    private CalculatorWithOperator calculatorWithOperator;
+    private CalculatorWithMathCopy calculatorWithMathCopy;
+    private CalculatorWithMathExtends calculatorWithMathExtends;
     private long counter;
 
     public String getCalculatorInfo() {

@@ -6,10 +6,10 @@ import home_work_3.calcs.simple.CalculatorWithMathExtends;
 import home_work_3.calcs.simple.CalculatorWithOperator;
 
 public class CalculatorWithCounterAutoAgregationBigDecimal {
-    CalculatorWithOperator calculatorWithOperator;
-    CalculatorWithMathCopy calculatorWithMathCopy;
-    CalculatorWithMathExtends calculatorWithMathExtends;
-    CalculatorWithBigDecimal calculatorWithBigDecimal;
+    private CalculatorWithOperator calculatorWithOperator;
+    private CalculatorWithMathCopy calculatorWithMathCopy;
+    private CalculatorWithMathExtends calculatorWithMathExtends;
+    private CalculatorWithBigDecimal calculatorWithBigDecimal;
     private long counter;
 
     public CalculatorWithCounterAutoAgregationBigDecimal(CalculatorWithOperator calculator) {

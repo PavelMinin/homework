@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 
 public class CalculatorWithBigDecimal implements ICalculator {
-    BigDecimal a;
-    BigDecimal b;
+    private BigDecimal a;
+    private BigDecimal b;
 
     @Override
     public String toString() {
