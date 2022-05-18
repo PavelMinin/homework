@@ -19,9 +19,11 @@ public class HistoryLogger {
     /**
      * Адрес логгера
      */
-    private final String pathToResult = "/Users/pavelminin/IdeaProjects/Md-JC1/homework/src" +
-            "/home_work_6/additional/search/search_history/log/result.txt";
+    private final String pathToResult;
 
+    public HistoryLogger(String pathToResult) {
+        this.pathToResult = pathToResult + "/result.txt";
+    }
 
     /**
      * Ищет все подпапки и файлы в указанной директории.
@@ -87,7 +89,8 @@ public class HistoryLogger {
                 throw new RuntimeException("Не удалось создать файл", e);
             }
         } else {
-            throw new RuntimeException("Файл уже существует");
+            result.delete();
+            throw new RuntimeException("Файл был перезаписан");
         }
     }
 

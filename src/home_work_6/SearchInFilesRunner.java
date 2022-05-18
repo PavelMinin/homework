@@ -8,16 +8,16 @@ import java.util.Scanner;
 
 public class SearchInFilesRunner {
     public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
 
-        HistoryLogger logger = new HistoryLogger();
+        System.out.println("Введите путь к директории с текстовыми файлами");
+        String pathToFolder = sc.nextLine();
+
+        HistoryLogger logger = new HistoryLogger(pathToFolder);
+
         try {
             logger.makeResultFile();
         } catch (RuntimeException e) {}
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Введите путь к библиотеке");
-        String pathToFolder = sc.nextLine();
 
         List<String> info = logger.getListOfFiles(pathToFolder);
 
@@ -36,7 +36,15 @@ public class SearchInFilesRunner {
                 break;
             }
 
-            String text = logger.getText(pathToFolder, input);
+            String text;
+
+            try {
+                text = logger.getText(pathToFolder, input);
+            } catch(IOException e) {
+                System.out.println("Такого файла нет в данной директории");
+                continue;
+            }
+
             String word;
 
             do {
