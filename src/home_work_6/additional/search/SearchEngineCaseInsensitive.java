@@ -20,14 +20,14 @@ public class SearchEngineCaseInsensitive implements ISearchEngine {
     @Override
     public long search(String text, String word) {
         if(text == null || word == null) return -1;
-        /*if(this.searchEngine instanceof RegExSearch) {
+        if(this.searchEngine instanceof RegExSearch) {
             RegExSearch regExSearch = (RegExSearch) this.searchEngine;
             regExSearch.setCaseInsensitive(true);
 
             return regExSearch.search(text, word);
-        } else {*/
+        } else {
             return searchEngine.search(text.toLowerCase(), word.toLowerCase());
-        //}
+        }
     }
 
     @Override
