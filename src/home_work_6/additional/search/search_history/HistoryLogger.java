@@ -101,7 +101,7 @@ public class HistoryLogger {
      * @param word искомое слово.
      * @param counter количество совпадений.
      */
-    public void writeToFile(String pathToFolder, String fileName, String word, long counter) {
+    public void writeToFile(String fileName, String word, long counter) {
         try {
             Path path = Path.of(pathToResult);
             String log = Files.readString(path, StandardCharsets.UTF_8);

@@ -53,7 +53,7 @@ public class SearchInFilesRunner {
                 word = sc.nextLine();
 
                 long counter = logger.searchWord(text, word);
-                logger.writeToFile(pathToFolder, input, word, counter);
+                logger.writeToFile(input, word, counter);
 
                 System.out.println("Слово \"" + word + "\" найдено " + counter + " раз");
             } while (!word.equals("выход()"));
