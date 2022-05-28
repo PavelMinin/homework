@@ -52,10 +52,12 @@ public class SearchInFilesRunner {
                 "Для выхода введите \"выход()\"");
                 word = sc.nextLine();
 
-                long counter = logger.searchWord(text, word);
-                logger.writeToFile(input, word, counter);
+                if(!word.equals("выход()")) {
+                    long counter = logger.searchWord(text, word);
+                    logger.writeToFile(input, word, counter);
 
-                System.out.println("Слово \"" + word + "\" найдено " + counter + " раз");
+                    System.out.println("Слово \"" + word + "\" найдено " + counter + " раз");
+                }
             } while (!word.equals("выход()"));
         } while (true);
     }
